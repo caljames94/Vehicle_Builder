@@ -31,10 +31,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Contributing 
 Fork it!
-Create your feature branch: git checkout -b my-new-feature
-Commit your changes: git commit -am 'Add some feature'
-Push to the branch: git push origin my-new-feature
-Submit a pull request :D
+* Create your feature branch: git checkout -b my-new-feature
+* Commit your changes: git commit -am 'Add some feature'
+* Push to the branch: git push origin my-new-feature
+* Submit a pull request :D
 
 ## Questions
 For any questions please reach out to me directly via: caljames94@gmail.com
