@@ -1,6 +1,6 @@
 # Vehicle Builder
 
-## Project Descriptio
+## Project Description
 This console application allows users to create a new vehicle or select and existing one and perform a set of actions against that vehicle such as 'accelerate' or 'reverse'.
 
 ## Table Of Contents
