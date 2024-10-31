@@ -383,22 +383,45 @@ class Cli {
             if (this.vehicles[i].vin === this.selectedVehicleVin) {
               this.vehicles[i].reverse();
             }
-          }
-        } else if (answers.action === 'Tow Vehicle') {
-          for (let i = 0; i < this.vehicles.length; i++) {
-            if (this.vehicles[i].vin === this.selectedVehicleVin) {
-              const selectedVehicle = this.selectedVehicleVin;
-              if(selectedVehicle === 'truck') {
-                this.findVehicleToTow;
-              }
-              else {
-                console.log('Can not tow')
-                return;
+          } 
+        } else if (answers.action === 'Tow') {
+            let truck: Truck | undefined;
+            for (let i = 0; i < this.vehicles.length; i++) {
+              // if the selected vehicle is a truck, set the truck variable to the vehicle
+              if (
+                this.vehicles[i].vin === this.selectedVehicleVin &&
+                this.vehicles[i] instanceof Truck
+              ) {
+                truck = this.vehicles[i] as Truck;
               }
             }
+            // if the selected vehicle is a truck, find a vehicle to tow
+            if (truck) {
+              this.findVehicleToTow(truck);
+              return;
+            } else {
+              console.log('This action is only available for Trucks');
             }
-
-
+          } else if (answers.action === 'Wheelie') {
+            // declare a variable to store the selected motorbike
+            let motorbike: Motorbike | undefined;
+            // find the selected motorbike
+            for (let i = 0; i < this.vehicles.length; i++) {
+              // if the selected vehicle is a motorbike, set the motorbike variable to the vehicle
+              if (
+                this.vehicles[i].vin === this.selectedVehicleVin &&
+                this.vehicles[i] instanceof Motorbike
+              ) {
+                motorbike = this.vehicles[i] as Motorbike;
+              }
+            }
+            // if the selected vehicle is a motorbike, perform a wheelie
+            if (motorbike) {
+              motorbike.wheelie();
+            } else {
+              console.log('This action is only available for Motorbikes');
+            }
+          
         // TODO: add statements to perform the tow action only if the selected vehicle is a truck. Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. After calling the findVehicleToTow method, you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
         // TODO: add statements to perform the wheelie action only if the selected vehicle is a motorbike
         } else if (answers.action === 'Select or create another vehicle') {
